@@ -1,6 +1,6 @@
 ## KHALIL H NAJAFI
 ## COURSE PROJECT 2 - MIXED PLOTS
-## The following code fully creates Plot 1, Total PM2.5 by Year
+## The following code fully creates several plots, Displaying PM2.5 trends
 
 
 ## Set working directory & Download dataset & Install/load libraries
@@ -78,6 +78,7 @@ coal <- data %>% filter(SCC %in% sub$SCC) %>% group_by(year) %>% summarize(sum(E
 # Construct plot4
 p <- ggplot(coal, aes(year, `sum(Emissions)`))
 plot4 <- p + geom_point(colour = "darkgreen", size = 4, alpha = 1/3) + geom_smooth(colour = "darkgreen") + labs(title = "US Pollution from Coal Combustion-Related Activity", x = "Year", y = expression(PM[2.5] * " (tons)"))
+plot4
 dev.copy(png, file = "plot4.png") # create PNG
 dev.off()
 
@@ -91,6 +92,7 @@ bmomv <- data %>% filter(fips == "24510" & type == "ON-ROAD") %>% group_by(year)
 # Construct plot5
 p <- ggplot(bmomv, aes(year, `sum(Emissions)`))
 plot5 <- p + geom_point(colour = "orange", size = 4, alpha = 1/3) + geom_smooth(colour = "orange") + labs(title = "Baltimore Pollution from Motor Vehicles", x = "Year", y = expression(PM[2.5] * " (tons)"))
+plot5
 dev.copy(png, file = "plot5.png") # create PNG
 dev.off()
 
